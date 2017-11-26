@@ -6,32 +6,67 @@
 
 import '@stencil/router';
 
-import { MyName as MyName } from './components/my-name/my-name';
 
-interface HTMLMyNameElement extends MyName, HTMLElement {
-}
-declare var HTMLMyNameElement: {
-  prototype: HTMLMyNameElement;
-  new (): HTMLMyNameElement;
-};
+import {
+  ProgressBar as ProgressBar
+} from './components/progress-bar/progress-bar';
+
 declare global {
+  interface HTMLProgressBarElement extends ProgressBar, HTMLElement {
+  }
+  var HTMLProgressBarElement: {
+    prototype: HTMLProgressBarElement;
+    new (): HTMLProgressBarElement;
+  };
   interface HTMLElementTagNameMap {
-      "my-name": HTMLMyNameElement;
+    "progress-bar": HTMLProgressBarElement;
   }
   interface ElementTagNameMap {
-      "my-name": HTMLMyNameElement;
+    "progress-bar": HTMLProgressBarElement;
   }
   namespace JSX {
-      interface IntrinsicElements {
-          "my-name": JSXElements.MyNameAttributes;
-      }
+    interface IntrinsicElements {
+      "progress-bar": JSXElements.ProgressBarAttributes;
+    }
   }
   namespace JSXElements {
-      export interface MyNameAttributes extends HTMLAttributes {
-        
-          first?: any,
-          last?: any
-      }
+    export interface ProgressBarAttributes extends HTMLAttributes {
+      
+        progress?: number
+    }
+  }
+}
+
+
+import {
+  SliderComponent as MySlider
+} from './components/slider/slider';
+
+declare global {
+  interface HTMLMySliderElement extends MySlider, HTMLElement {
+  }
+  var HTMLMySliderElement: {
+    prototype: HTMLMySliderElement;
+    new (): HTMLMySliderElement;
+  };
+  interface HTMLElementTagNameMap {
+    "my-slider": HTMLMySliderElement;
+  }
+  interface ElementTagNameMap {
+    "my-slider": HTMLMySliderElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "my-slider": JSXElements.MySliderAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface MySliderAttributes extends HTMLAttributes {
+      
+        min?: number,
+        max?: number,
+        value?: number
+    }
   }
 }
 
