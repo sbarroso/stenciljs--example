@@ -1,10 +1,10 @@
 exports.config = {
   bundles: [
-    { components: ['progress-bar', 'my-slider'] }
+    { components: ['progress-bar'] },
+    { components: ['my-slider'] }
   ],
-  collections: [
-    { name: '@stencil/router' }
-  ]
+  buildDir: 'stencil-components/build',
+  collections: [ ]
 };
 
 exports.devServer = {
